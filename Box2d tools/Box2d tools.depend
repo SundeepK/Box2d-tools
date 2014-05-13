@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1400010132 source:/media/sundeep/3 tb Vol/code/Box2d tools/Box2d tools/src/B2BoxBuilder.cpp
+	"B2BoxBuilder.h"
+
+1400010132 /media/sundeep/3 tb Vol/code/Box2d tools/Box2d tools/include/B2BoxBuilder.h
+	"B2DBuilderHelper.h"
+
+1400010132 /media/sundeep/3 tb Vol/code/Box2d tools/Box2d tools/include/B2DBuilderHelper.h
+	<SFML/System.hpp>
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<Box2D/Box2D.h>
+	"Box2DConstants.h"
+	"B2Builder.h"
+	<memory.h>
+
+1400010132 /media/sundeep/3 tb Vol/code/Box2d tools/Box2d tools/include/Box2DConstants.h
+
+1400010132 /media/sundeep/3 tb Vol/code/Box2d tools/Box2d tools/include/B2Builder.h
+
+1400010132 source:/media/sundeep/3 tb Vol/code/Box2d tools/Box2d tools/src/SFMLB2dDebugDraw.cpp
+	"SFMLB2dDebugDraw.h"
+
+1400010355 /media/sundeep/3 tb Vol/code/Box2d tools/Box2d tools/include/SFMLB2dDebugDraw.h
+	"Box2DConstants.h"
+	<memory.h>
+	<SFML/System.hpp>
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<Box2D/Box2D.h>
+
