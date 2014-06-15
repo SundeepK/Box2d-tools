@@ -9,7 +9,7 @@ public:
 B2BoxBuilder();
     virtual ~B2BoxBuilder();
     B2BoxBuilder(float width, float height);
-
+    B2BoxBuilder(std::vector<b2Vec2>& points, b2Body* bodyToCopyFrom);
     B2BoxBuilder&  setPosition(b2Vec2 position);
     B2BoxBuilder&  bodyType(b2BodyType bodyType);
     B2BoxBuilder&  setFriction(float friction);

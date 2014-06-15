@@ -16,6 +16,11 @@ B2DBuilderHelper&  B2DBuilderHelper::setFriction(float friction){
     return *this;
 }
 
+B2DBuilderHelper&  B2DBuilderHelper::setAngle(float rotation){
+    m_bodyDef.angle = rotation;
+    return * this;
+}
+
 
 B2DBuilderHelper&  B2DBuilderHelper::setRestitution(float restitution){
     m_fixtureDef.restitution = restitution;

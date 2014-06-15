@@ -21,6 +21,8 @@ public:
     B2DBuilderHelper&  setRestitution(float restitution);
     B2DBuilderHelper&  setDensity(float density);
     B2DBuilderHelper&  setSensor(bool isSensor);
+    B2DBuilderHelper&  setAngle(float angle);
+
     b2Body* build(b2World& world, b2Shape* shape);
 private:
 

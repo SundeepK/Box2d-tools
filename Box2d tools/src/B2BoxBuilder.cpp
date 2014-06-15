@@ -5,6 +5,28 @@ B2BoxBuilder::B2BoxBuilder(float width, float height) : m_width(width/Box2DConst
     m_boxShape.SetAsBox(m_width/2,(m_height/2));
 }
 
+B2BoxBuilder::B2BoxBuilder(std::vector<b2Vec2>& points, b2Body* bodyToCopyFrom){
+    b2Vec2 vertices[points.size()];
+    for(int i = 0 ; i < points.size(); i ++){
+      vertices[i].Set( points[i].x, points[i].y);
+    }
+//      m_boxShape.SetAsBox(1,1);
+
+    m_boxShape.Set(&points[0], points.size());
+    b2Fixture* originalFixture = bodyToCopyFrom->GetFixtureList();
+    b2PolygonShape *originalPolygon = (b2PolygonShape*)originalFixture->GetShape();
+    b2Vec2 worldp = (bodyToCopyFrom->GetLocalPoint(bodyToCopyFrom->GetPosition())) ;
+//    worldp.y =1;
+    m_builder.setPosition(worldp);
+//    m_builder.setPosition(b2Vec2(3,3));
+    m_builder.bodyType(bodyToCopyFrom->GetType());
+    m_builder.setFriction(originalFixture->GetFriction());
+    m_builder.setDensity(originalFixture->GetDensity());
+    m_builder.setRestitution(originalFixture->GetRestitution());
+    m_builder.setAngle(bodyToCopyFrom->GetAngle());
+}
+
+
 B2BoxBuilder::B2BoxBuilder()
 {
 }
