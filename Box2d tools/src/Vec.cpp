@@ -5,6 +5,11 @@ Vec::Vec()
     //ctor
 }
 
+Vec::Vec(float x_, float y_) : x(x_) , y(y_)
+{
+    //ctor
+}
+
 Vec::~Vec()
 {
     //dtor
@@ -39,14 +44,23 @@ Vec& Vec::operator /(float divisor){
     return *this;
 }
 
-Vec& Vec::mToPix(){
-    x *= Box2DConstants::WORLD_SCALE;y *= Box2DConstants::WORLD_SCALE;
-    return *this;
+Vec Vec::mToPix(){
+    float x_ = x * Box2DConstants::WORLD_SCALE; float y_ = y * Box2DConstants::WORLD_SCALE;
+    return Vec(x_,y_);
 }
 
-Vec& Vec::pixToM(){
-    x /= Box2DConstants::WORLD_SCALE;y /= Box2DConstants::WORLD_SCALE;
-    return *this;
+Vec Vec::pixToM(){
+    float x_ = x / Box2DConstants::WORLD_SCALE; float y_ = y / Box2DConstants::WORLD_SCALE;
+    return Vec(x_,y_);
 }
+
+sf::Vector2f Vec::toSFMLv(){
+    return sf::Vector2f(x,y);
+}
+
+b2Vec2 Vec::toB2v(){
+    return b2Vec2(x,y);
+}
+
 
 
