@@ -3,6 +3,7 @@
 
 #include <Box2D.h>
 #include <SFML/Graphics.hpp>
+#include "Box2DConstants.h"
 
 class Vec
 {
@@ -19,12 +20,12 @@ class Vec
         b2Vec2 toB2v();
 
         Vec& operator /(float divisor);
-
-
         float x;
         float y;
     protected:
     private:
+        void setVals(const float& x, const float& y);
+
 };
 
 #endif // VEC_H
