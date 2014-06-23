@@ -22,7 +22,12 @@ Vec& Vec::operator=(const b2Vec2 &v)
     return *this;
 }
 
-Vec::Vec( const sf::Vector2f& other ) : x(other.x), y(other.y) {
+Vec::Vec( const Vec& other ) : x(other.x), y(other.y)
+{
+}
+
+Vec::Vec( const sf::Vector2f& other ) : x(other.x), y(other.y)
+{
 }
 
 Vec& Vec::operator=(const sf::Vector2f &v)
@@ -31,34 +36,45 @@ Vec& Vec::operator=(const sf::Vector2f &v)
     return *this;
 }
 
-void Vec::setVals(const float& a, const float& b){
-        x = a; y = b;
- }
-
-
-Vec::Vec( const b2Vec2& other ) : x(other.x), y(other.y) {
+void Vec::setVals(const float& a, const float& b)
+{
+    x = a;
+    y = b;
 }
 
-Vec& Vec::operator /(float divisor){
-    x /= divisor;y /= divisor;
+
+Vec::Vec( const b2Vec2& other ) : x(other.x), y(other.y)
+{
+}
+
+Vec& Vec::operator /(float divisor)
+{
+    x /= divisor;
+    y /= divisor;
     return *this;
 }
 
-Vec Vec::mToPix(){
-    float x_ = x * Box2DConstants::WORLD_SCALE; float y_ = y * Box2DConstants::WORLD_SCALE;
+Vec Vec::mToPix()
+{
+    float x_ = x * Box2DConstants::WORLD_SCALE;
+    float y_ = y * Box2DConstants::WORLD_SCALE;
     return Vec(x_,y_);
 }
 
-Vec Vec::pixToM(){
-    float x_ = x / Box2DConstants::WORLD_SCALE; float y_ = y / Box2DConstants::WORLD_SCALE;
+Vec Vec::pixToM()
+{
+    float x_ = x / Box2DConstants::WORLD_SCALE;
+    float y_ = y / Box2DConstants::WORLD_SCALE;
     return Vec(x_,y_);
 }
 
-sf::Vector2f Vec::toSFMLv(){
+sf::Vector2f Vec::toSFMLv()
+{
     return sf::Vector2f(x,y);
 }
 
-b2Vec2 Vec::toB2v(){
+b2Vec2 Vec::toB2v()
+{
     return b2Vec2(x,y);
 }
 

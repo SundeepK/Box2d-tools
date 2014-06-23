@@ -11,6 +11,7 @@ SFMLB2dDebugDraw::~SFMLB2dDebugDraw()
 void SFMLB2dDebugDraw::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color)
 {
     sf::ConvexShape polygon(vertexCount);
+
 	for(int i = 0; i < vertexCount; i++)
 	{
 		sf::Vector2f transformedVec = SFMLB2dDebugDraw::B2VecToSFVec(vertices[i]);
@@ -25,8 +26,7 @@ void SFMLB2dDebugDraw::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, co
 
 void SFMLB2dDebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color)
 {
-
-        sf::ConvexShape polygon(vertexCount);
+    sf::ConvexShape polygon(vertexCount);
 	for(int i = 0; i < vertexCount; i++)
 	{
 		sf::Vector2f transformedVec = SFMLB2dDebugDraw::B2VecToSFVec(vertices[i]);

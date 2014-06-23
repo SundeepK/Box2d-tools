@@ -6,19 +6,16 @@ B2BoxBuilder::B2BoxBuilder(float width, float height) : m_width(width/Box2DConst
 }
 
 B2BoxBuilder::B2BoxBuilder(std::vector<b2Vec2>& points, b2Body* bodyToCopyFrom){
-
-    if(points.size() < 3){
-        std::cout << "less than 3" << std::endl;
+    const int pointsLenght = points.size();
+    if(pointsLenght >= 3 &&  pointsLenght <= 8 ){
+        m_boxShape.Set(&points[0], points.size());
+        b2Fixture* originalFixture = bodyToCopyFrom->GetFixtureList();
+        b2PolygonShape *originalPolygon = (b2PolygonShape*)originalFixture->GetShape();
+        m_builder.bodyType(bodyToCopyFrom->GetType());
+        m_builder.setFriction(originalFixture->GetFriction());
+        m_builder.setDensity(originalFixture->GetDensity());
+        m_builder.setRestitution(originalFixture->GetRestitution());
     }
-
-    m_boxShape.Set(&points[0], points.size());
-    b2Fixture* originalFixture = bodyToCopyFrom->GetFixtureList();
-    b2PolygonShape *originalPolygon = (b2PolygonShape*)originalFixture->GetShape();
-    m_builder.bodyType(bodyToCopyFrom->GetType());
-    m_builder.setFriction(originalFixture->GetFriction());
-    m_builder.setDensity(originalFixture->GetDensity());
-    m_builder.setRestitution(originalFixture->GetRestitution());
- //   m_builder.setAngle(bodyToCopyFrom->GetAngle());
 }
 
 

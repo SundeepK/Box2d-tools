@@ -5,8 +5,8 @@
 class Box2DConstants
 {
     public:
-        static const int WORLD_SCALE = 30;
-        static const int CENTER_DIV = 2;
+        static const float WORLD_SCALE ;
+        static const float CENTER_DIV ;
 };
 
 
