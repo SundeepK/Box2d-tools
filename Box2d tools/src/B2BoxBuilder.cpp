@@ -13,7 +13,7 @@ B2BoxBuilder::B2BoxBuilder(std::vector<b2Vec2>& points, b2Body* bodyToCopyFrom){
         b2PolygonShape *originalPolygon = (b2PolygonShape*)originalFixture->GetShape();
         m_builder.bodyType(bodyToCopyFrom->GetType());
         m_builder.setFriction(originalFixture->GetFriction());
-        m_builder.setDensity(originalFixture->GetDensity());
+      //  m_builder.setDensity(1.0f);
         m_builder.setRestitution(originalFixture->GetRestitution());
     }
 }
