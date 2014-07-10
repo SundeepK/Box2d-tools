@@ -23,9 +23,8 @@ B2BoxBuilder::B2BoxBuilder()
 {
 }
 
-B2BoxBuilder::~B2BoxBuilder()
-{
-}
+
+
 B2BoxBuilder& B2BoxBuilder::setPosition(b2Vec2 position){
     //divide by scale to convert to box2d scale
     position.x = (position.x/Box2DConstants::WORLD_SCALE)+m_width/2.0f;
