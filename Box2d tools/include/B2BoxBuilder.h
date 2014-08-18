@@ -2,6 +2,7 @@
 #define B2BOXBUILDER_H
 
 #include "B2DBuilderHelper.h"
+#include "Box2DConstants.h"
 
 class B2BoxBuilder : public B2Builder
 {

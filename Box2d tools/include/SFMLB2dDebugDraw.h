@@ -12,7 +12,7 @@ class SFMLB2dDebugDraw :  public b2Draw
 {
 
 public:
-    SFMLB2dDebugDraw(sf::RenderWindow& window);
+    SFMLB2dDebugDraw(sf::RenderTarget& window);
     virtual ~SFMLB2dDebugDraw();
 
     static sf::Color GLColorToSFML(const b2Color &color, sf::Uint8 alpha = 255)
@@ -33,7 +33,7 @@ public:
     void DrawTransform(const b2Transform& xf);
 
 private:
-    std::unique_ptr<sf::RenderWindow> m_renderWindow;
+    std::unique_ptr<sf::RenderTarget> m_renderWindow;
 
 };
 

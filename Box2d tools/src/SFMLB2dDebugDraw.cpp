@@ -1,6 +1,6 @@
 #include "SFMLB2dDebugDraw.h"
 
-SFMLB2dDebugDraw::SFMLB2dDebugDraw(sf::RenderWindow& renderWindow) : m_renderWindow(&renderWindow)
+SFMLB2dDebugDraw::SFMLB2dDebugDraw(sf::RenderTarget& renderWindow) : m_renderWindow(&renderWindow)
 {
 }
 
