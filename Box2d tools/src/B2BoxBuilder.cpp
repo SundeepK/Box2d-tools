@@ -8,13 +8,14 @@ B2BoxBuilder::B2BoxBuilder(float width, float height) : m_width(width/Box2DConst
 B2BoxBuilder::B2BoxBuilder(std::vector<b2Vec2>& points, b2Body* bodyToCopyFrom){
     const int pointsLenght = points.size();
     if(pointsLenght >= 3 &&  pointsLenght <= 8 ){
+        m_builder.bodyType(bodyToCopyFrom->GetType());
         m_boxShape.Set(&points[0], points.size());
         b2Fixture* originalFixture = bodyToCopyFrom->GetFixtureList();
         b2PolygonShape *originalPolygon = (b2PolygonShape*)originalFixture->GetShape();
-        m_builder.bodyType(bodyToCopyFrom->GetType());
+        m_builder.setRestitution(originalFixture->GetRestitution());
         m_builder.setFriction(originalFixture->GetFriction());
         m_builder.setDensity(originalFixture->GetDensity());
-        m_builder.setRestitution(originalFixture->GetRestitution());
+
     }
 }
 
@@ -23,9 +24,8 @@ B2BoxBuilder::B2BoxBuilder()
 {
 }
 
-B2BoxBuilder::~B2BoxBuilder()
-{
-}
+
+
 B2BoxBuilder& B2BoxBuilder::setPosition(b2Vec2 position){
     //divide by scale to convert to box2d scale
     position.x = (position.x/Box2DConstants::WORLD_SCALE)+m_width/2.0f;

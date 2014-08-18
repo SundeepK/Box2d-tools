@@ -29,6 +29,7 @@ B2DBuilderHelper&  B2DBuilderHelper::setRestitution(float restitution){
 
 B2DBuilderHelper&  B2DBuilderHelper::setDensity(float density){
     m_fixtureDef.density =density;
+
     return *this;
 }
 

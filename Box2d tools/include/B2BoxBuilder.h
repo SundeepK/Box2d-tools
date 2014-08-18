@@ -3,12 +3,12 @@
 
 #include "B2DBuilderHelper.h"
 #include "Box2DConstants.h"
+#include "B2Builder.h"
 
 class B2BoxBuilder : public B2Builder
 {
 public:
 B2BoxBuilder();
-    virtual ~B2BoxBuilder();
     B2BoxBuilder(float width, float height);
     B2BoxBuilder(std::vector<b2Vec2>& points, b2Body* bodyToCopyFrom);
     B2BoxBuilder&  setPosition(b2Vec2 position);
