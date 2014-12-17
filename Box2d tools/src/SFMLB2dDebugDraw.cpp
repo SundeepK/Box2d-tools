@@ -52,7 +52,13 @@ void SFMLB2dDebugDraw::DrawSolidCircle(const b2Vec2& center, float32 radius, con
 
 void SFMLB2dDebugDraw::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& color)
 {
+	sf::VertexArray lines(sf::Lines, 2);
+	lines[0].position = SFMLB2dDebugDraw::B2VecToSFVec(p1);
+	lines[0].color = sf::Color(color.r, color.g, color.b);
+	lines[1].position = SFMLB2dDebugDraw::B2VecToSFVec(p2);
+	lines[1].color = sf::Color(color.r, color.g, color.b);
 
+	m_renderWindow->draw(lines);
 
 }
 

@@ -36,6 +36,7 @@ Vec& Vec::operator=(const sf::Vector2f &v)
     return *this;
 }
 
+
 void Vec::setVals(const float& a, const float& b)
 {
     x = a;

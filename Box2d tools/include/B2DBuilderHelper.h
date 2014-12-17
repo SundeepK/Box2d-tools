@@ -22,6 +22,11 @@ public:
     B2DBuilderHelper&  setDensity(float density);
     B2DBuilderHelper&  setSensor(bool isSensor);
     B2DBuilderHelper&  setAngle(float angle);
+    B2DBuilderHelper&  fixedRotation(bool shouldRotate);
+    B2DBuilderHelper&  setBitMask(uint16 shouldRotate);
+    B2DBuilderHelper&  setcategoryBits(uint16 shouldRotate);
+
+
 
     b2Body* build(b2World& world, b2Shape* shape);
 private:

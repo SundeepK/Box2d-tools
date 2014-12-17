@@ -45,4 +45,17 @@ b2Body* B2DBuilderHelper::build(b2World& world,  b2Shape* shape){
     return body;
 }
 
+B2DBuilderHelper& B2DBuilderHelper::fixedRotation(bool shouldRotate) {
+	m_bodyDef.fixedRotation  = shouldRotate;
+	return *this;
+}
 
+B2DBuilderHelper& B2DBuilderHelper::setBitMask(uint16 mask) {
+	m_fixtureDef.filter.maskBits  = mask;
+	return *this;
+}
+
+B2DBuilderHelper& B2DBuilderHelper::setcategoryBits(uint16 categoryMask) {
+	m_fixtureDef.filter.categoryBits  = categoryMask;
+	return *this;
+}

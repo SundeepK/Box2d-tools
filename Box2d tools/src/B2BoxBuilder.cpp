@@ -5,7 +5,7 @@ B2BoxBuilder::B2BoxBuilder(float width, float height) : m_width(width/Box2DConst
     m_boxShape.SetAsBox(m_width/2,(m_height/2));
 }
 
-B2BoxBuilder::B2BoxBuilder(std::vector<b2Vec2>& points, b2Body* bodyToCopyFrom){
+B2BoxBuilder::B2BoxBuilder(std::vector<b2Vec2> points, b2Body* bodyToCopyFrom){
     const int pointsLenght = points.size();
     if(pointsLenght >= 3 &&  pointsLenght <= 8 ){
         m_builder.bodyType(bodyToCopyFrom->GetType());
@@ -62,4 +62,19 @@ B2BoxBuilder&  B2BoxBuilder::setSensor(bool isSensor){
 
 b2Body* B2BoxBuilder::build(b2World& world){
     return m_builder.build(world, &m_boxShape);
+}
+
+B2BoxBuilder& B2BoxBuilder::fixedRotation(bool shouldRotate) {
+	m_builder.fixedRotation(shouldRotate);
+	return *this;
+}
+
+B2BoxBuilder& B2BoxBuilder::setBitMask(uint16 mask) {
+	m_builder.setBitMask(mask);
+	return *this;
+}
+
+B2BoxBuilder& B2BoxBuilder::setcategoryBits(uint16 catMask) {
+	m_builder.setcategoryBits(catMask);
+	return *this;
 }
