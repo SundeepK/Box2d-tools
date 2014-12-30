@@ -15,7 +15,6 @@ B2BoxBuilder::B2BoxBuilder(std::vector<b2Vec2> points, b2Body* bodyToCopyFrom){
         m_builder.setRestitution(originalFixture->GetRestitution());
         m_builder.setFriction(originalFixture->GetFriction());
         m_builder.setDensity(originalFixture->GetDensity());
-
     }
 }
 

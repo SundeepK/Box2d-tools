@@ -41,12 +41,23 @@ void SFMLB2dDebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCoun
 
 void SFMLB2dDebugDraw::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color)
 {
-
+	sf::CircleShape shape(radius*30);
+	shape.setPosition(SFMLB2dDebugDraw::B2VecToSFVec(center));
+	// set a 1-pixel wide orange outline
+	shape.setOutlineThickness(1.0f);
+	shape.setOutlineColor(sf::Color(20, 60 , 70));
+	m_renderWindow->draw(shape);
 }
 
 void SFMLB2dDebugDraw::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Vec2& axis, const b2Color& color)
 {
+	sf::CircleShape shape(radius*30);
 
+	shape.setPosition(SFMLB2dDebugDraw::B2VecToSFVec(b2Vec2(center.x - radius, center.y - radius)));
+	// set a 1-pixel wide orange outline
+	shape.setOutlineThickness(1.0f);
+	shape.setOutlineColor(sf::Color(color.r, color.g, color.b));
+	m_renderWindow->draw(shape);
 
 }
 
