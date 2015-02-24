@@ -36,7 +36,7 @@ sf::ConvexShape DebugDrawer::DrawSolidPolygon(const b2Vec2* vertices, int32 vert
 
 sf::CircleShape DebugDrawer::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color) {
 	sf::CircleShape shape(radius*30);
-	shape.setPosition(SFMLB2dDebugDraw::B2VecToSFVec(center));
+	shape.setPosition(SFMLB2dDebugDraw::B2VecToSFVec(b2Vec2(center.x - radius, center.y - radius)));
 	// set a 1-pixel wide orange outline
 	shape.setOutlineThickness(1.0f);
 	shape.setOutlineColor(sf::Color(20, 60 , 70));
